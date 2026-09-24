@@ -6,3 +6,9 @@ This document is intended to record the items that I learned while working on th
 ### September 23, 2026
  - Setup the github repo, project skeleton, & environment
  - Learned how to better structure a README file for clarity and brevity
+
+ ## Data Exploration
+
+ ### September 24, 2026
+ - Imported the nfl schedules dataframe & conducted preliminary data analysis
+ - Practiced using functions to sort & analyzize data to help build my data pipeline knowledge
