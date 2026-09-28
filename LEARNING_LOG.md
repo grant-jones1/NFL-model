@@ -18,3 +18,11 @@ This document is intended to record the items that I learned while working on th
  - Learned what the .crosstab pandas function does
     - Counts how often each combination of categories occurs together
     - Returns a DataFrame where the grouped counts are structured into a table
+
+### September 27, 2026
+- Worked on sections 4-7 of the data exploration notebook
+- Learned how to replace values in a column of a dataframe with a dictionary
+   - {Old value: New value}
+   - 'df[colum_name].replace(dictionary)
+   - the 'home_win' column not scores with proper Elo S ratings
+   - built a clean table called 'games_clean' (3,829 games, 21 columns)
