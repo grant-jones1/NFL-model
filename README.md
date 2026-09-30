@@ -25,6 +25,7 @@ A statistical model that rates every NFL team, predicts the full probability dis
     src/nflmodel/  source code
     notebooks/     exploration and analysis, one per phase
     forecasts/     weekly predictions, committed before kickoff
+    notes/         notes on technical material (probability, Elo, etc.)
     LEARNING_LOG.md  dated notes on decisions and lessons
 
 ## Setup
