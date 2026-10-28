@@ -5,14 +5,14 @@ import numpy as np
 import pandas as pd
 
 # Current model parameters.
-# Tuned values (03_elo_baseline Section 6): k=20, hfa=40, season_regression=0.4
+# Tuned values (03_elo_baseline Section 6): k=21, hfa=42, season_regression=0.4
 # Original untuned values:                  k=20, hfa=48, season_regression=1/3
 DEFAULT_PARAMS = {
     "base": 1500,
     "scale": 400,
-    "k": 20,
-    "hfa": 48,
-    "season_regression": 1/3,
+    "k": 21,
+    "hfa": 42,
+    "season_regression": 0.4,
     "use_mov": True,
     "mov_scale": 2.2,
     "mov_slope": 0.001,

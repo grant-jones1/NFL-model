@@ -28,6 +28,8 @@ A statistical model that rates every NFL team, predicts the full probability dis
       02_team_records.ipynb      each team's regular-season record by season
       03_elo_baseline.ipynb      baseline Elo ratings and pre-game win probabilities
       04_ats_carryover.ipynb     whether beating the spread carries over to the next game
+      05_forecasts.ipynb         weekly Elo forecasts and grading against final scores
+      06_season_projections.ipynb  rest-of-season projections, playoff odds, and backtest
       archive/                   superseded notebooks
     tests/         pytest checks for the data layer
     data/          generated games table (not committed)
