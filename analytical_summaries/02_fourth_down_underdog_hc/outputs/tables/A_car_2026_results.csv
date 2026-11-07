@@ -1,0 +1,8 @@
+week,opponent,home_away,points_for,points_against,result,market_win_prob,market_line,status
+1,CHI,Home,37.0,59.0,L,0.4003612281757977,-3.0,Underdog
+2,ATL,Away,34.0,3.0,W,0.5829926410466066,2.5,Favorite
+3,CLE,Away,18.0,21.0,L,0.551441114716549,2.5,Favorite
+4,DET,Home,32.0,26.0,W,0.33635187580853815,-4.5,Underdog
+6,PHI,Away,25.0,14.0,W,0.5933697541594238,3.0,Favorite
+7,TB,Home,13.0,43.0,L,0.5996387718242023,3.0,Favorite
+8,GB,Away,19.0,27.0,L,0.3690596562184024,-3.5,Underdog

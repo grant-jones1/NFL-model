@@ -1,0 +1,6 @@
+season,wins,losses,proj_wins,actual_wins,playoff_pct,made_playoffs
+2021,3.0,4.0,6.3683,5.0,0.0492,False
+2022,2.0,5.0,6.034,7.0,0.0597,False
+2023,0.0,6.0,4.0743,2.0,0.0056,False
+2024,1.0,6.0,3.4107,5.0,0.0005,False
+2025,4.0,3.0,7.7809,8.0,0.12,True
