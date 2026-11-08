@@ -6,3 +6,4 @@ week,opponent,home_away,points_for,points_against,result,market_win_prob,market_
 6,PHI,Away,25.0,14.0,W,0.5933697541594238,3.0,Favorite
 7,TB,Home,13.0,43.0,L,0.5996387718242023,3.0,Favorite
 8,GB,Away,19.0,27.0,L,0.3690596562184024,-3.5,Underdog
+9,DEN,Home,21.0,26.0,L,0.4170073589533933,-3.0,Underdog

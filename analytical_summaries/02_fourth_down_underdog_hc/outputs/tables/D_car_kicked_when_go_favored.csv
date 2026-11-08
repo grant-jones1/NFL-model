@@ -1,7 +1,4 @@
 week,opponent,status,qtr,score_differential,ydstogo,yardline_100,zone,play_type,go_minus_kick_wpa,go_plays,kick_plays
 6,PHI,Favorite,1.0,3.0,1.0,58.0,Midfield (41-60),punt,0.028358524779971875,169,43
-6,PHI,Favorite,3.0,6.0,6.0,54.0,Midfield (41-60),punt,0.025638965391785035,31,375
-7,TB,Favorite,1.0,-7.0,6.0,56.0,Midfield (41-60),punt,0.025638965391785035,31,375
 3,CLE,Favorite,3.0,-7.0,2.0,22.0,Opponent 40-21 (21-40),field_goal,0.020467072681269873,106,134
 3,CLE,Favorite,1.0,0.0,2.0,56.0,Midfield (41-60),punt,0.016693101502250878,70,184
-6,PHI,Favorite,1.0,0.0,4.0,29.0,Opponent 40-21 (21-40),field_goal,0.0030294534542666686,57,241

@@ -1,3 +1,5 @@
-evidence_says,plays,went_for_it,kicked,go_rate
-Go favored,11,5,6,0.45454545454545453
-Insufficient evidence,18,2,16,0.1111111111111111
+chart_category,plays,went_for_it,kicked,go_rate
+GO FOR IT,7,4,3,0.5714285714285714
+CLOSE CALL,1,0,1,0.0
+KICK,0,0,0,
+NOT ENOUGH DATA,21,3,18,0.14285714285714285

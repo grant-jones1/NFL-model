@@ -8,6 +8,18 @@ import numpy as np
 import pandas as pd
 
 # =============================
+# As of (frozen results)
+# =============================
+# Game results and Elo ratings: games final when the data was pulled on November 8, 2026
+# (Weeks 1-8 plus 9 of the 15 Week 9 games, including Carolina's loss to Denver).
+# Fourth-down play-by-play through Week 8 (Week 9 play-by-play was not yet published).
+# The first run saves the raw pulls to data/ (not committed); later runs read them instead of re-pulling.
+AS_OF_DATE = "2026-11-08"
+RESULTS_THROUGH_WEEK = 9
+PBP_THROUGH_WEEK = 8
+SNAPSHOT_DIR = "data"
+
+# =============================
 # Scope
 # =============================
 HIST_SEASONS = list(range(2018, 2026))   # historical evidence: 2018-2025 regular seasons
@@ -184,3 +196,89 @@ def aggression_group(go_rate):
 
 
 AGGR_ORDER = ["Low (0%)", "Medium (1-99%)", "High (100%)"]
+
+# =============================
+# Decision categories (Figure 1, sideline card, Analysis D)
+# =============================
+# From a cell's go-minus-kick difference in win-probability percentage points
+# (0.010 vegas_wpa = 1.0 point):
+#   GO FOR IT        +1.0 or more
+#   CLOSE CALL       between -1.0 and +1.0
+#   KICK             -1.0 or lower
+#   NOT ENOUGH DATA  fewer than 30 go or 30 kick plays, OR going for it was under 10% of
+#                    the cell's decisions (go + kick).
+#
+# Why the 10% rule: in spots where teams almost always kick, the few that went for it are a
+# self-selected group (a mismatch they spotted, a fake, a desperate script). Their results say
+# more about why they chose to go than about what going for it does, so even 30+ such plays are
+# not treated as evidence. The difference is rounded to 0.1 before comparing with the thresholds,
+# so a cell's category always matches the number printed on the chart.
+DECISION_THRESHOLD_PTS = 1.0
+MIN_GO_SHARE = 0.10
+DECISION_ORDER = ["GO FOR IT", "CLOSE CALL", "KICK", "NOT ENOUGH DATA"]
+
+
+def decision_category(diff_pts, go_plays, kick_plays):
+    """GO FOR IT / CLOSE CALL / KICK / NOT ENOUGH DATA for one cell (see rules above)."""
+    if go_plays < MIN_SAMPLE or kick_plays < MIN_SAMPLE:
+        return "NOT ENOUGH DATA"
+    if go_plays / (go_plays + kick_plays) < MIN_GO_SHARE:
+        return "NOT ENOUGH DATA"
+    d = round(diff_pts, 1)
+    if d >= DECISION_THRESHOLD_PTS:
+        return "GO FOR IT"
+    if d <= -DECISION_THRESHOLD_PTS:
+        return "KICK"
+    return "CLOSE CALL"
+
+# =============================
+# Expected-points (EP) decision model (Section E, Figure 1, sideline card)
+# =============================
+# Value of each fourth-down option in expected points for the offense, from 2018-2025
+# regular-season play-by-play. League-average kicking and punting; no adjustment for score
+# or time (the chart applies to neutral situations).
+#
+# EP of a field position: average nflfastR `ep` on 1st-and-10 run/pass plays at each
+#   yardline_100 (1st-and-goal inside the 10), smoothed with a centered rolling mean.
+# Go:   p(convert) x EP(1st down at the line to gain) + (1 - p) x (-EP of opponent's 1st down
+#       at the spot). A conversion that reaches the goal line is a touchdown, valued like a made
+#       field goal: TD_POINTS - EP of the opponent after the kickoff.
+#       p(convert) = logistic fit of league conversion rate on log(yards to go) (always falls with distance), all
+#       situations, fourth-down attempts as defined above (kneels and spikes excluded).
+# Punt: -EP of the opponent's 1st down after the league-average net punt from that spot, from a
+#       smooth quadratic fit of net punt on yard line (touchbacks included). Only from the opponent's
+#       35 or farther back.
+# Field goal: distance = yardline_100 + 18 (how nflverse records kicks). Make rate from a logistic fit on distance.
+#       make x (3 - EP of opponent after the average 2024-2025 post-kickoff start, current kickoff rules)
+#       + miss x (-EP of opponent's 1st down at the spot of the kick, or their 20 if farther back).
+#       Only 63 yards or shorter.
+# Decision: the option with the highest EP; if it beats the second-best by less than the
+# margin, the square reads COACH'S CALL.
+EP_SMOOTH_WINDOW = 5                 # yard lines in the centered rolling mean
+LONG_YDSTOGO = 11                    # chart row "11+" (evaluated at the median yards to go of 11+ decisions)
+TD_POINTS = 7
+FG_POINTS = 3
+PUNT_FIT_DEGREE = 2                  # quadratic fit of net punt on yard line
+PUNT_MIN_YARDLINE = 35               # punts allowed only from the opponent's 35 or farther back
+FG_DISTANCE_OFFSET = 18              # kick distance = yardline_100 + 18 (nflverse convention)
+FG_MAX_DISTANCE = 63                 # longest field goal allowed
+FG_SPOT_BEHIND_LOS = 7               # spot of the kick, yards behind the line of scrimmage
+FG_MISS_MIN_SPOT = 80                # opponent gets the ball at least at their own 20 (yardline_100 80)
+KICKOFF_SEASONS = [2024, 2025]       # post-kickoff start under the current kickoff rules
+DECISION_MARGIN = 0.2                # expected points; closer than this -> COACH'S CALL
+MARGIN_SENSITIVITY = [0.1, 0.3]
+
+# Chart layout: columns = field position (yardline_100) in 5-yard steps from our own 20 to the
+# opponent's 1; rows = yards to go 1-10 and 11+.
+CHART_YARDLINES = [80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20, 15, 10, 5, 1]
+CHART_YDSTOGO = list(range(1, LONG_YDSTOGO + 1))   # 11 means "11+"
+CHART_DECISIONS = ["GO", "PUNT", "FIELD GOAL", "COACH'S CALL"]
+
+
+def yardline_label(yardline_100):
+    """'Own 20' ... '50' ... 'Opp 1' for a yardline_100 value."""
+    if yardline_100 > 50:
+        return f"Own {100 - yardline_100:.0f}"
+    if yardline_100 == 50:
+        return "50"
+    return f"Opp {yardline_100:.0f}"

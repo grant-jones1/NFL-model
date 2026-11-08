@@ -1,0 +1,30 @@
+week,opponent,quarter,score_situation,yards_to_go,field_position,what_they_did,chart_says,ep_go,ep_punt,ep_fg,ep_of_their_choice,ep_of_best_option,ep_difference,agrees_with_chart
+1,CHI,1,Tied,13,own 37,PUNT,PUNT,-1.756,-0.768,,-0.768,-0.768,0.0,Yes
+1,CHI,2,Trailing by 7,4,own 23,PUNT,PUNT,-1.806,-1.552,,-1.552,-1.552,0.0,Yes
+1,CHI,2,Trailing by 3,10,CHI 26,FIELD GOAL,FIELD GOAL,0.731,,1.062,1.062,1.062,0.0,Yes
+1,CHI,3,Trailing by 7,5,own 39,PUNT,PUNT,-0.968,-0.676,,-0.676,-0.676,0.0,Yes
+1,CHI,3,Trailing by 7,3,CHI 39,GO,GO,0.811,-0.173,-0.161,0.811,0.811,0.0,Yes
+2,ATL,1,Tied,3,ATL 3,GO,GO,2.943,,1.558,2.943,2.943,0.0,Yes
+2,ATL,1,Leading by 7,15,own 39,PUNT,PUNT,-1.722,-0.676,,-0.676,-0.676,0.0,Yes
+2,ATL,1,Leading by 7,12,ATL 19,FIELD GOAL,FIELD GOAL,1.069,,1.355,1.355,1.355,0.0,Yes
+3,CLE,1,Tied,17,own 33,PUNT,PUNT,-2.146,-0.962,,-0.962,-0.962,0.0,Yes
+3,CLE,1,Tied,2,own 44,PUNT,GO,0.117,-0.5,,-0.5,0.117,0.617,No
+3,CLE,2,Tied,3,CLE 43,GO,GO,0.578,-0.235,-0.695,0.578,0.578,0.0,Yes
+3,CLE,2,Trailing by 3,1,own 40,GO,GO,0.377,-0.676,,0.377,0.377,0.0,Yes
+3,CLE,3,Trailing by 7,2,CLE 22,FIELD GOAL,GO,2.278,,1.251,1.251,2.278,1.027,No
+3,CLE,3,Trailing by 4,14,CLE 45,PUNT,PUNT,-0.685,-0.235,-0.988,-0.235,-0.235,0.0,Yes
+3,CLE,3,Trailing by 4,7,CLE 35,FIELD GOAL,COACH'S CALL,0.399,-0.11,0.327,0.327,0.399,0.072,Coach's call
+4,DET,1,Trailing by 3,12,own 45,PUNT,PUNT,-1.197,-0.5,,-0.5,-0.5,0.0,Yes
+4,DET,2,Leading by 1,4,DET 42,GO,GO,0.404,-0.235,-0.561,0.404,0.404,0.0,Yes
+4,DET,2,Tied,10,DET 29,FIELD GOAL,FIELD GOAL,0.525,,0.869,0.869,0.869,0.0,Yes
+6,PHI,1,Tied,4,PHI 29,FIELD GOAL,GO,1.212,,0.869,0.869,1.212,0.344,No
+6,PHI,1,Leading by 3,12,own 39,PUNT,PUNT,-1.591,-0.676,,-0.676,-0.676,0.0,Yes
+6,PHI,1,Leading by 3,1,own 42,PUNT,GO,0.509,-0.564,,-0.564,0.509,1.073,No
+6,PHI,2,Leading by 3,10,PHI 45,PUNT,PUNT,-0.484,-0.235,-0.988,-0.235,-0.235,0.0,Yes
+6,PHI,3,Leading by 3,10,PHI 34,FIELD GOAL,FIELD GOAL,0.22,,0.431,0.431,0.431,0.0,Yes
+6,PHI,3,Leading by 6,6,own 46,PUNT,PUNT,-0.663,-0.444,,-0.444,-0.444,0.0,Yes
+6,PHI,3,Leading by 6,1,PHI 31,GO,GO,2.176,,0.707,2.176,2.176,0.0,Yes
+7,TB,1,Trailing by 7,6,own 44,PUNT,PUNT,-0.773,-0.5,,-0.5,-0.5,0.0,Yes
+8,GB,1,Tied,14,GB 21,FIELD GOAL,FIELD GOAL,0.873,,1.288,1.288,1.288,0.0,Yes
+8,GB,1,Trailing by 3,1,GB 9,GO,GO,3.584,,1.522,3.584,3.584,0.0,Yes
+8,GB,2,Leading by 4,9,own 38,PUNT,PUNT,-1.456,-0.716,,-0.716,-0.716,0.0,Yes
